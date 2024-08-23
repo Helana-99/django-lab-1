@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Trainee Details</h2>
+<p>Name: {{ trainee.name }}</p>
+<p>Course: {{ trainee.course }}</p>
+<p>Start Date: {{ trainee.start_date }}</p>
+<a href="{% url 'trainee_update' trainee.id %}">Edit</a>
+<form method="POST" action="{% url 'trainee_delete' trainee.id %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+<a href="{% url 'trainee_list' %}">Back to list</a>
+{% endblock %}

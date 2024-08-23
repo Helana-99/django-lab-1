@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Accounts</h2>
+<ul>
+    {% for account in accounts %}
+        <li>{{ account.name }} - <a href="{% url 'account_details' account.id %}">Details</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'account_create' %}">Create new account</a>
+{% endblock %}

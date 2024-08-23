@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Tracking Records</h2>
+<ul>
+    {% for tracking in trackings %}
+        <li>{{ tracking.trainee.name }} - {{ tracking.progress }}% on {{ tracking.date }} - <a href="{% url 'tracking_details' tracking.id %}">Details</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'tracking_create' %}">Add new tracking record</a>
+{% endblock %}

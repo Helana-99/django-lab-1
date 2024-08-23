@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Tracking Details</h2>
+<p>Trainee: {{ tracking.trainee.name }}</p>
+<p>Progress: {{ tracking.progress }}%</p>
+<p>Date: {{ tracking.date }}</p>
+<a href="{% url 'tracking_update' tracking.id %}">Edit</a>
+<form method="POST" action="{% url 'tracking_delete' tracking.id %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+<a href="{% url 'tracking_list' %}">Back to list</a>
+{% endblock %}
